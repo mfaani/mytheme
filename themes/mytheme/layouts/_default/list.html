@@ -1,0 +1,15 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+{{ range .Pages.ByPublishDate.Reverse }}
+<p>
+    <h3><a class="title" href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+    {{ partial "metadata.html" . }}
+    <a class="summary" href="{{ .RelPermalink }}">
+        <p>{{ .Summary }}</p>
+    </a>
+</p>
+{{ end }}
+{{ end }}
+
+<!-- We are displaying the metadata i.e. publication date and tags, and the summary of the post
+We are also sorting posts by publication date in reverse order, most recent first -->
